@@ -1,4 +1,4 @@
-package main.java.com.example.travel_agency.controllers;
+package com.example.travel_agency.controllers;
 
 import main.java.com.example.travel_agency.services.CheckoutService;
 import main.java.com.example.travel_agency.services.PurchaseData;
