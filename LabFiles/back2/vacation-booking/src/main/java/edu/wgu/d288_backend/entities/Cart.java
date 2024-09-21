@@ -1,12 +1,19 @@
 package edu.wgu.d288_backend.entities;
 
 import lombok.Data;
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+// import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "carts")
 @Data
+@Getter
+@Setter
+@ToString
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -26,8 +26,8 @@ public class DataLoader implements CommandLineRunner {
     private void loadCustomers() {
         // Sample data
         Customer customer1 = new Customer();
-        customer1.setCustomerFirstName("John");
-        customer1.setCustomerLastName("Doe");
+        customer1.setFirstName("John");
+        customer1.setLastName("Doe");
         customer1.setAddress("123 Main St");
         customer1.setPostalCode("12345");
         customer1.setPhone("555-1234");
@@ -36,8 +36,8 @@ public class DataLoader implements CommandLineRunner {
         customer1.setDivisionId(1L); // Assuming a valid division_id
 
         Customer customer2 = new Customer();
-        customer2.setCustomerFirstName("Jane");
-        customer2.setCustomerLastName("Smith");
+        customer2.setFirstName("Jane");
+        customer2.setLastName("Smith");
         customer2.setAddress("456 Elm St");
         customer2.setPostalCode("67890");
         customer2.setPhone("555-5678");

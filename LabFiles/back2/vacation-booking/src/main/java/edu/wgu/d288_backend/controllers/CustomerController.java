@@ -33,8 +33,8 @@ public class CustomerController {
     public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
         Customer existingCustomer = customerService.getCustomerById(id);
         if (existingCustomer != null) {
-            existingCustomer.setCustomerFirstName(customer.getCustomerFirstName());
-            existingCustomer.setCustomerLastName(customer.getCustomerLastName());
+            existingCustomer.setFirstName(customer.getFirstName());
+            existingCustomer.setLastName(customer.getLastName());
             existingCustomer.setPostalCode(customer.getPostalCode());
             return customerService.saveCustomer(existingCustomer);
         } else {

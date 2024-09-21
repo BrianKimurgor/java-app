@@ -1,7 +1,8 @@
 package edu.wgu.d288_backend.entities;
 
 import lombok.Data;
-import javax.persistence.*;
+// import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
