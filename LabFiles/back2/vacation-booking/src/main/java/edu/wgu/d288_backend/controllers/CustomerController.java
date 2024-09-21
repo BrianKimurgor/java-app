@@ -1,7 +1,7 @@
 package edu.wgu.d288_backend.controllers;
 
-import edu.wgu.d288_backend.dao.CustomerRepository;
 import edu.wgu.d288_backend.entities.Customer;
+import edu.wgu.d288_backend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,25 +9,41 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/customers")
-@CrossOrigin(origins = "http://localhost:4200")
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
-
     @Autowired
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+    private CustomerService customerService;
 
-    // GET request to fetch all customers
     @GetMapping
     public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+        return customerService.getAllCustomers();
     }
 
-    // POST request to add a new customer
+    @GetMapping("/{id}")
+    public Customer getCustomerById(@PathVariable Long id) {
+        return customerService.getCustomerById(id);
+    }
+
     @PostMapping
-    public Customer addCustomer(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
+    public Customer createCustomer(@RequestBody Customer customer) {
+        return customerService.saveCustomer(customer);
+    }
+
+    @PutMapping("/{id}")
+    public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+        Customer existingCustomer = customerService.getCustomerById(id);
+        if (existingCustomer != null) {
+            existingCustomer.setCustomerFirstName(customer.getCustomerFirstName());
+            existingCustomer.setCustomerLastName(customer.getCustomerLastName());
+            existingCustomer.setPostalCode(customer.getPostalCode());
+            return customerService.saveCustomer(existingCustomer);
+        } else {
+            return null;
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
     }
 }

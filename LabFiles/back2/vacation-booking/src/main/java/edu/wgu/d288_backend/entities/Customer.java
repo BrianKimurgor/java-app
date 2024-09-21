@@ -1,13 +1,15 @@
 package edu.wgu.d288_backend.entities;
 
-import lombok.Data;
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 @Entity
 @Table(name = "customers")
-@Data
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
@@ -22,29 +24,91 @@ public class Customer {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "phone")
-    private String phone;
-
     @Column(name = "postal_code")
     private String postalCode;
 
+    @Column(name = "phone")
+    private String phone;
+
     @Column(name = "create_date")
-    private Date createDate;
+    private LocalDateTime createDate;
 
     @Column(name = "last_update")
-    private Date lastUpdate;
+    private LocalDateTime lastUpdate;
 
-    @ManyToOne
-    @JoinColumn(name = "division_id")
-    private Division division;
+    @Column(name = "division_id")
+    private Long divisionId;
 
-    public void setCity(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setCity'");
+    // Getters and Setters
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setState(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setState'");
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerFirstName() {
+        return customerFirstName;
+    }
+
+    public void setCustomerFirstName(String customerFirstName) {
+        this.customerFirstName = customerFirstName;
+    }
+
+    public String getCustomerLastName() {
+        return customerLastName;
+    }
+
+    public void setCustomerLastName(String customerLastName) {
+        this.customerLastName = customerLastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDateTime getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(LocalDateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Long getDivisionId() {
+        return divisionId;
+    }
+
+    public void setDivisionId(Long divisionId) {
+        this.divisionId = divisionId;
     }
 }

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VacationBookingApplication<vacation-booking>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.wgu.d288_backend.vacation_booking.VacationBookingApplication",
+            "projectName": "vacation-booking",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
