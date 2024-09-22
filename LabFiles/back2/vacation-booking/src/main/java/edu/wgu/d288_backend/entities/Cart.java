@@ -21,7 +21,7 @@ public class Cart {
     private Long cartId;
 
     @Column(name = "package_price")
-    private Double packagePrice;
+    private Integer packagePrice;
 
     @Column(name = "party_size")
     private Integer partySize;
