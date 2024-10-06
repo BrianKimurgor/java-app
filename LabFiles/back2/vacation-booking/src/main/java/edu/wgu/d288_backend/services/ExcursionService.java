@@ -37,12 +37,18 @@ public class ExcursionService {
             excursion.setImageUrl(excursionDetails.getImageUrl());
             excursion.setCreateDate(excursionDetails.getCreateDate());
             excursion.setLastUpdate(excursionDetails.getLastUpdate());
-            excursion.setVacation(excursionDetails.getVacation());
+            excursion.setVacation(excursionDetails.getVacation()); // Assuming you have set this in Excursion
             return excursionRepository.save(excursion);
         }).orElseThrow(() -> new RuntimeException("Excursion not found with id " + id));
     }
 
     public void deleteExcursion(Integer id) {
         excursionRepository.deleteById(id);
+    }
+
+    // New method to find excursions by vacation ID
+
+    public List<Excursion> findByVacationId(Long vacationId) {
+        return excursionRepository.findByVacation_VacationId(vacationId);
     }
 }
